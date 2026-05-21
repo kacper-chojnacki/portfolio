@@ -2,9 +2,13 @@
 ---
 
 <div class="flex items-center justify-between mb-8 sm:mb-10">
-  <a href="/" id="logo-link" class="logo-brand no-underline tracking-tight hover:opacity-100" aria-label="Kacper Chojnacki — Home">
+  <a href="/" id="logo-link" class="logo-brand no-underline tracking-tight hover:opacity-100" aria-label="Kacper Chojnacki | Home">
     <span id="logo-wrapper" class="logo-wrapper">
-      <span id="logo-full" class="logo-full" aria-hidden="true">KacperChojnacki</span><span id="logo-short" class="logo-short" aria-hidden="true">KCh</span><span class="logo-dot" style="color: var(--color-accent);">.</span>
+      <span class="logo-letter" aria-hidden="true">K</span>
+      <span class="logo-fold logo-fold-1" aria-hidden="true">acper</span>
+      <span class="logo-letter" aria-hidden="true">Ch</span>
+      <span class="logo-fold logo-fold-2" aria-hidden="true">ojnacki</span>
+      <span class="logo-dot" style="color: var(--color-accent);" aria-hidden="true">.</span>
     </span>
   </a>
 
@@ -42,6 +46,7 @@
     display: inline-flex;
     align-items: baseline;
     color: inherit;
+    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .logo-wrapper {
@@ -51,52 +56,47 @@
     white-space: nowrap;
   }
 
-  /* Full name — hidden by default, revealed on hover/intro */
-  .logo-full {
+  .logo-letter {
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* Sliding folders that unfold from left to right */
+  .logo-fold {
     display: inline-block;
     max-width: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-width 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    white-space: nowrap;
+    transition: max-width 0.65s cubic-bezier(0.25, 1, 0.5, 1),
+                opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
-  /* Short "KCh" — always visible */
-  .logo-short {
-    display: inline-block;
-    max-width: 6ch;
-    opacity: 1;
-    overflow: hidden;
-    transition: max-width 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  /* Logo dot always visible */
   .logo-dot {
     display: inline-block;
     flex-shrink: 0;
   }
 
   /* Expanded state — when .logo-expanded class is on the wrapper */
-  .logo-wrapper.logo-expanded .logo-full {
-    max-width: 20ch;
+  .logo-wrapper.logo-expanded .logo-fold-1 {
+    max-width: 6ch;
     opacity: 1;
   }
 
-  .logo-wrapper.logo-expanded .logo-short {
-    max-width: 0;
-    opacity: 0;
+  .logo-wrapper.logo-expanded .logo-fold-2 {
+    max-width: 8ch;
+    opacity: 1;
   }
 
   /* Hover trigger on the link itself */
-  .logo-brand:hover .logo-full {
-    max-width: 20ch;
+  .logo-brand:hover .logo-fold-1 {
+    max-width: 6ch;
     opacity: 1;
   }
 
-  .logo-brand:hover .logo-short {
-    max-width: 0;
-    opacity: 0;
+  .logo-brand:hover .logo-fold-2 {
+    max-width: 8ch;
+    opacity: 1;
   }
 </style>
 
@@ -120,9 +120,10 @@
     const isDark = document.documentElement.classList.contains('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     updateThemeIcons();
+    // Buffer increased to 800ms so the 400ms CSS transitions complete fully
     setTimeout(() => {
       document.documentElement.classList.remove('theme-transitioning');
-    }, 500);
+    }, 800);
   });
 
   // Language toggle
@@ -130,29 +131,57 @@
   let lang = localStorage.getItem('lang') || 'en';
 
   function applyLang(animate = false) {
+    const mainContent = document.getElementById('main-content');
     const elements = document.querySelectorAll('[data-en]');
+
     if (animate && elements.length > 0) {
+      let startHeight = 0;
+      if (mainContent) {
+        startHeight = mainContent.offsetHeight;
+        mainContent.style.height = `${startHeight}px`;
+        mainContent.style.overflow = 'hidden';
+        mainContent.style.transition = 'height 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+      }
+
       elements.forEach(el => {
         if (el instanceof HTMLElement) {
-          el.style.transition = 'opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)';
+          el.style.transition = 'opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1)';
           el.style.opacity = '0';
-          el.style.transform = 'translateY(1px)';
         }
       });
+
       setTimeout(() => {
         updateDOM();
+
+        if (mainContent) {
+          mainContent.style.height = 'auto';
+          const endHeight = mainContent.offsetHeight;
+          mainContent.style.height = `${startHeight}px`;
+          mainContent.offsetHeight; // force reflow
+          mainContent.style.height = `${endHeight}px`;
+        }
+
         elements.forEach(el => {
           if (el instanceof HTMLElement) {
+            el.style.transition = 'opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)';
             el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-            setTimeout(() => {
-              el.style.transition = '';
-              el.style.opacity = '';
-              el.style.transform = '';
-            }, 250);
           }
         });
-      }, 250);
+
+        setTimeout(() => {
+          if (mainContent) {
+            mainContent.style.height = '';
+            mainContent.style.overflow = '';
+            mainContent.style.transition = '';
+          }
+          elements.forEach(el => {
+            if (el instanceof HTMLElement) {
+              el.style.transition = '';
+              el.style.opacity = '';
+            }
+          });
+        }, 300);
+      }, 150);
     } else {
       updateDOM();
     }

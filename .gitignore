@@ -28,3 +28,7 @@ pnpm-debug.log*
 test-results/
 test_screenshot.js
 test_mobile_responsiveness.js
+
+# PDFs and document binaries
+*.pdf
+
