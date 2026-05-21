@@ -41,7 +41,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ github.event.deployment.payload.web_url || 'https://kacperchojnacki.com' }}
+      url: ${{ github.event.deployment.payload.web_url || 'https://kacper-chojnacki.github.io/portfolio/' }}
     runs-on: ubuntu-latest
     needs: build
     steps:
