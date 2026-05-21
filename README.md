@@ -1,4 +1,4 @@
-# kacperchojnacki.pl
+# kacperchojnacki.com
 
 Personal portfolio of Kacper Chojnacki — Software Engineer at Dynatrace, MSc Computer Science student at JKU Linz.
 
