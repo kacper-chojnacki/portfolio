@@ -1,0 +1,38 @@
+# Build output
+dist/
+
+# Generated types
+.astro/
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# IDE / editor folders
+.idea/
+.vscode/
+
+# Test artifacts & scripts
+test-results/
+test_screenshot.js
+test_mobile_responsiveness.js
+
+# Scratch / draft files in project root
+/auda1.wav
+/cv.pdf
+/delba.dev
+/draft.jpeg
+/draft2.jpeg
+/photo.jpg

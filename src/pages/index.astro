@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TopBar from '../components/TopBar.astro';
+---
+
+<Layout>
+  <TopBar />
+
+  <div id="main-content" class="grid grid-cols-1 gap-12 md:grid-cols-[2fr_1fr] md:gap-16">
+    <!-- LEFT COLUMN: Main content -->
+    <div class="prose">
+      <section>
+        <h1 data-en="Portfolio" data-pl="Portfolio">Portfolio</h1>
+        <p class="text-muted text-base" data-en="Software Engineer at <strong>Dynatrace</strong>, MSc Computer Science student at <strong>JKU Linz</strong>. I care about building reliable systems and growing into technical leadership." data-pl="Software Engineer w <strong>Dynatrace</strong>, student informatyki (MSc) na <strong>JKU Linz</strong>. Buduję niezawodne systemy i rozwijam się w kierunku technical leadership.">
+          Software Engineer at <strong>Dynatrace</strong>, MSc Computer Science student at <strong>JKU Linz</strong>. I care about building reliable systems and growing into technical leadership.
+        </p>
+
+        <a href="https://www.linkedin.com/in/kacperchojnacki/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span data-en="Let's talk!" data-pl="Porozmawiajmy!">Let's talk!</span>
+        </a>
+      </section>
+
+      <!-- Work -->
+      <section>
+        <h2 data-en="Work" data-pl="Doświadczenie">Work</h2>
+        <ul>
+          <li>
+            <strong><a href="https://www.dynatrace.com" target="_blank" rel="noopener noreferrer">Dynatrace</a></strong>
+            <span class="text-muted" data-en="(Software Engineer I, Linz, 2025–Present):" data-pl="(Software Engineer I, Linz, 2025–obecnie):">(Software Engineer I, Linz, 2025–Present):</span>
+            <span class="block mt-1 text-stone-600 dark:text-stone-400" data-en="Designing and developing scalable backend services in the Java/GCP ecosystem within the Work&Study framework. Responsible for maintaining rigorous Clean Code standards, test pyramids, and continuous optimization of technical debt in an international team." data-pl="Projektowanie i rozwój skalowalnych usług backendowych w ekosystemie Java/GCP w ramach programu Work&Study. Odpowiedzialność za utrzymanie standardów Clean Code, piramidy testów oraz ciągłą optymalizację długu technicznego w międzynarodowym zespole.">Designing and developing scalable backend services in the Java/GCP ecosystem within the Work&Study framework. Responsible for maintaining rigorous Clean Code standards, test pyramids, and continuous optimization of technical debt in an international team.</span>
+          </li>
+          <li>
+            <strong><a href="https://llj.com.pl/" target="_blank" rel="noopener noreferrer">LLJ Software & Electronics</a></strong>
+            <span class="text-muted" data-en="(Junior Developer, Hybrid, 2024–2025):" data-pl="(Junior Developer, hybrydowo, 2024–2025):">(Junior Developer, Hybrid, 2024–2025):</span>
+            <span class="block mt-1 text-stone-600 dark:text-stone-400" data-en="Key participation in the full software development lifecycle (SDLC) of a backend based on Spring Boot and PostgreSQL. Implemented CI/CD pipelines (Docker) reducing deployment times by 25%, delivering a custom system for a client with 400+ employees (30% efficiency increase)." data-pl="Kluczowy udział w pełnym cyklu życia oprogramowania (SDLC) backendu opartego na Spring Boot i PostgreSQL. Skuteczne wdrożenie procesów CI/CD (Docker), które skróciło czas wdrożeń o 25% i zaowocowało produkcyjnym dostarczeniem systemu dla klienta zatrudniającego ponad 400 pracowników (wzrost wydajności o 30%).">Key participation in the full software development lifecycle (SDLC) of a backend based on Spring Boot and PostgreSQL. Implemented CI/CD pipelines (Docker) reducing deployment times by 25%, delivering a custom system for a client with 400+ employees (30% efficiency increase).</span>
+          </li>
+          <li>
+            <strong><a href="https://nestbank.pl/" target="_blank" rel="noopener noreferrer">Nest Bank S.A.</a></strong>
+            <span class="text-muted" data-en="(Junior Developer, Gdańsk, 2023):" data-pl="(Junior Developer, Gdańsk, 2023):">(Junior Developer, Gdańsk, 2023):</span>
+            <span class="block mt-1 text-stone-600 dark:text-stone-400" data-en="Designed and deployed an internal enterprise RESTful application using Spring Boot for an organization with 800+ employees. Automated and optimized off-boarding checklist processes, resulting in a ~20% improvement in document flow and operational efficiency." data-pl="Projekt i wdrożenie wewnętrznej aplikacji enterprise opartej o Spring Boot i RESTful API dla organizacji z ponad 800 pracownikami. Skuteczna automatyzacja i optymalizacja procesów off-boardingowych, co przełożyło się na usprawnienie przepływu dokumentów i skrócenie czasu operacyjnego o ok. 20%.">Designed and deployed an internal enterprise RESTful application using Spring Boot for an organization with 800+ employees. Automated and optimized off-boarding checklist processes, resulting in a ~20% improvement in document flow and operational efficiency.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Projects -->
+      <section>
+        <h2 data-en="Projects" data-pl="Projekty">Projects</h2>
+        <ul>
+          <li>
+            <strong>OrthoSense</strong>
+            <span class="text-muted" data-en="(Engineering Thesis, 2025–2026):" data-pl="(Praca dyplomowa, 2025–2026):">(Engineering Thesis, 2025–2026):</span>
+            <span class="block mt-1 text-stone-600 dark:text-stone-400" data-en="Designed and implemented a local, real-time data processing pipeline using Google ML Kit. Built an Edge AI architecture that eliminated network latency while fully preserving user privacy and ensuring GDPR compliance." data-pl="Zaprojektowanie i implementacja lokalnego potoku przetwarzania danych w czasie rzeczywistym z wykorzystaniem Google ML Kit, co pozwoliło na eliminację opóźnień sieciowych (Edge AI) przy pełnym zachowaniu prywatności użytkownika (RODO).">Designed and implemented a local, real-time data processing pipeline using Google ML Kit. Built an Edge AI architecture that eliminated network latency while fully preserving user privacy and ensuring GDPR compliance.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Education -->
+      <section>
+        <h2 data-en="Education" data-pl="Edukacja">Education</h2>
+        <ul>
+          <li>
+            <strong data-en="MSc Computer Science" data-pl="Studia magisterskie, informatyka">MSc Computer Science</strong>
+            <span class="text-muted" data-en="(2025–Present):" data-pl="(2025–obecnie):">(2025–Present):</span>
+            <span class="block mt-1 text-stone-600 dark:text-stone-400" data-en="Johannes Kepler University Linz.&lt;br&gt;Specialization: Software Engineering." data-pl="Johannes Kepler University Linz.&lt;br&gt;Specjalizacja: Inżynieria Oprogramowania.">Johannes Kepler University Linz.<br>Specialization: Software Engineering.</span>
+          </li>
+          <li>
+            <strong data-en="BSc Computer Science" data-pl="Studia inżynierskie, informatyka">BSc Computer Science</strong>
+            <span class="text-muted" data-en="(2022–2026):" data-pl="(2022–2026):">(2022–2026):</span>
+            <span class="block mt-1 text-stone-600 dark:text-stone-400" data-en="Polish-Japanese Academy of IT, Gdańsk.&lt;br&gt;Specialization: Cybersecurity.&lt;br&gt;Thesis: &ldquo;OrthoSense.&rdquo;" data-pl="Polsko-Japońska Akademia Technik Komputerowych, Gdańsk.&lt;br&gt;Specjalizacja: Cyberbezpieczeństwo.&lt;br&gt;Praca: &bdquo;OrthoSense.&rdquo;">Polish-Japanese Academy of IT, Gdańsk.<br>Specialization: Cybersecurity.<br>Thesis: &ldquo;OrthoSense.&rdquo;</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Stack -->
+      <section>
+        <h2 data-en="Stack" data-pl="Technologie">Stack</h2>
+        <p>Java · Spring Boot · GCP · PostgreSQL · Docker · Linux · Agile</p>
+      </section>
+    </div>
+
+    <!-- RIGHT COLUMN: About me -->
+    <div class="prose md:[&_h2:first-child]:mt-0 md:[&_h2:first-child]:pt-0">
+      <section>
+        <img
+          src="/photo.jpg"
+          alt="Kacper Chojnacki"
+          class="w-44 h-44 md:w-56 md:h-56 aspect-square object-cover rounded-full border-[3px] border-black dark:border-stone-100 block mx-auto md:mx-0 mb-8"
+        />
+        <h2 data-en="About me" data-pl="O mnie">About me</h2>
+        <p data-en="Hey, I'm Kacper. In my work, I combine engineering craftsmanship with product thinking. I focus not only on code architecture but also on team process optimization and delivering real business value — with a long-term focus on Technical Leadership." data-pl="Cześć, jestem Kacper. W pracy łączę rzemiosło inżynierskie z myśleniem produktowym. Skupiam się nie tylko na architekturze kodu, ale również na optymalizacji procesów zespołowych i dostarczaniu realnej wartości biznesowej — z długofalowym nastawieniem na Technical Leadership.">
+          Hey, I'm Kacper. In my work, I combine engineering craftsmanship with product thinking. I focus not only on code architecture but also on team process optimization and delivering real business value — with a long-term focus on Technical Leadership.
+        </p>
+
+        <p data-en="My path went from cybersecurity in Gdańsk to enterprise backend in Austria. In parallel, I expand my theoretical knowledge through my master's studies at JKU Linz, while in my daily work I focus on delivering reliable cloud solutions." data-pl="Moja droga prowadziła od cyberbezpieczeństwa w Gdańsku po enterprise backend w Austrii. Równolegle poszerzam wiedzę teoretyczną na studiach magisterskich na JKU Linz, a w codziennej pracy skupiam się na dostarczaniu niezawodnych rozwiązań chmurowych.">
+          My path went from cybersecurity in Gdańsk to enterprise backend in Austria. In parallel, I expand my theoretical knowledge through my master's studies at JKU Linz, while in my daily work I focus on delivering reliable cloud solutions.
+        </p>
+
+        <hr />
+
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/kacperchojnacki/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span>·</span>
+          <a href="https://github.com/kacperchojnackipjatk" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span>·</span>
+          <a href="mailto:kacper.chojnacki23@gmail.com">Email</a>
+        </div>
+
+        <p class="text-muted mt-4" style="font-size: 0.875rem;" data-en="<span class='inline-block'>Polish (Native)</span> · <span class='inline-block'>English (Advanced)</span> · <span class='inline-block'>German (Elementary)</span>" data-pl="<span class='inline-block'>Polski (ojczysty)</span> · <span class='inline-block'>Angielski (zaawansowany)</span> · <span class='inline-block'>Niemiecki (podstawowy)</span>">
+          <span class="inline-block">Polish (Native)</span> · <span class="inline-block">English (Advanced)</span> · <span class="inline-block">German (Elementary)</span>
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>

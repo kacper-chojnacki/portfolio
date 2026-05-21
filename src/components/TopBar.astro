@@ -1,0 +1,194 @@
+---
+---
+
+<div class="flex items-center justify-between mb-8 sm:mb-10">
+  <a href="/" id="logo-link" class="logo-brand no-underline tracking-tight hover:opacity-100" aria-label="Kacper Chojnacki — Home">
+    <span id="logo-wrapper" class="logo-wrapper">
+      <span id="logo-full" class="logo-full" aria-hidden="true">KacperChojnacki</span><span id="logo-short" class="logo-short" aria-hidden="true">KCh</span><span class="logo-dot" style="color: var(--color-accent);">.</span>
+    </span>
+  </a>
+
+  <div class="controls">
+    <button
+      id="lang-toggle"
+      class="control-btn"
+      aria-label="Switch language"
+      title="Switch language"
+    >
+      EN
+    </button>
+
+    <button
+      id="theme-toggle"
+      class="control-btn"
+      aria-label="Toggle theme"
+      title="Toggle theme"
+    >
+      <svg id="icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+      </svg>
+      <svg id="icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  .logo-brand {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1;
+    display: inline-flex;
+    align-items: baseline;
+    color: inherit;
+  }
+
+  .logo-wrapper {
+    display: inline-flex;
+    align-items: baseline;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* Full name — hidden by default, revealed on hover/intro */
+  .logo-full {
+    display: inline-block;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-width 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Short "KCh" — always visible */
+  .logo-short {
+    display: inline-block;
+    max-width: 6ch;
+    opacity: 1;
+    overflow: hidden;
+    transition: max-width 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Logo dot always visible */
+  .logo-dot {
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* Expanded state — when .logo-expanded class is on the wrapper */
+  .logo-wrapper.logo-expanded .logo-full {
+    max-width: 20ch;
+    opacity: 1;
+  }
+
+  .logo-wrapper.logo-expanded .logo-short {
+    max-width: 0;
+    opacity: 0;
+  }
+
+  /* Hover trigger on the link itself */
+  .logo-brand:hover .logo-full {
+    max-width: 20ch;
+    opacity: 1;
+  }
+
+  .logo-brand:hover .logo-short {
+    max-width: 0;
+    opacity: 0;
+  }
+</style>
+
+<script>
+  // Theme toggle
+  const themeBtn = document.getElementById('theme-toggle')!;
+  const iconSun = document.getElementById('icon-sun')!;
+  const iconMoon = document.getElementById('icon-moon')!;
+
+  function updateThemeIcons() {
+    const isDark = document.documentElement.classList.contains('dark');
+    iconSun.classList.toggle('hidden', !isDark);
+    iconMoon.classList.toggle('hidden', isDark);
+  }
+
+  updateThemeIcons();
+
+  themeBtn.addEventListener('click', () => {
+    document.documentElement.classList.add('theme-transitioning');
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    updateThemeIcons();
+    setTimeout(() => {
+      document.documentElement.classList.remove('theme-transitioning');
+    }, 500);
+  });
+
+  // Language toggle
+  const langBtn = document.getElementById('lang-toggle')!;
+  let lang = localStorage.getItem('lang') || 'en';
+
+  function applyLang(animate = false) {
+    const elements = document.querySelectorAll('[data-en]');
+    if (animate && elements.length > 0) {
+      elements.forEach(el => {
+        if (el instanceof HTMLElement) {
+          el.style.transition = 'opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)';
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(1px)';
+        }
+      });
+      setTimeout(() => {
+        updateDOM();
+        elements.forEach(el => {
+          if (el instanceof HTMLElement) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+            setTimeout(() => {
+              el.style.transition = '';
+              el.style.opacity = '';
+              el.style.transform = '';
+            }, 250);
+          }
+        });
+      }, 250);
+    } else {
+      updateDOM();
+    }
+  }
+
+  function updateDOM() {
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = lang === 'pl' ? el.getAttribute('data-pl') : el.getAttribute('data-en');
+      if (text !== null) el.innerHTML = text;
+    });
+    langBtn.textContent = lang === 'en' ? 'EN' : 'PL';
+    document.documentElement.lang = lang;
+  }
+
+  applyLang(false);
+
+  langBtn.addEventListener('click', () => {
+    lang = lang === 'en' ? 'pl' : 'en';
+    localStorage.setItem('lang', lang);
+    applyLang(true);
+  });
+
+  // Logo intro animation: expand "KacperChojnacki." briefly then collapse to "KCh."
+  const logoWrapper = document.getElementById('logo-wrapper');
+  if (logoWrapper) {
+    // Small delay so transition properties are registered
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        // Step 1: expand to full name
+        logoWrapper.classList.add('logo-expanded');
+
+        // Step 2: after 1.2s collapse back to "KCh."
+        setTimeout(() => {
+          logoWrapper.classList.remove('logo-expanded');
+        }, 1200);
+      });
+    });
+  }
+</script>
