@@ -28,11 +28,3 @@ pnpm-debug.log*
 test-results/
 test_screenshot.js
 test_mobile_responsiveness.js
-
-# Scratch / draft files in project root
-/auda1.wav
-/cv.pdf
-/delba.dev
-/draft.jpeg
-/draft2.jpeg
-/photo.jpg
