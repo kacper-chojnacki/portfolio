@@ -6,11 +6,16 @@ import TopBar from '../components/TopBar.astro';
 <Layout>
   <TopBar />
 
-  <div id="main-content" class="grid grid-cols-1 gap-12 md:grid-cols-[2fr_1fr] md:gap-16">
+  <div id="main-content" class="grid grid-cols-1 gap-12 md:grid-cols-[2.4fr_1fr] md:gap-16">
     <!-- LEFT COLUMN: Main content -->
     <div class="prose">
       <section>
-        <h1 data-en="Portfolio" data-pl="Portfolio">Portfolio</h1>
+        <h1 class="mb-1! font-bold text-4xl! tracking-tight text-[var(--color-text-light)]! dark:text-[var(--color-text-dark)]!" data-en="Kacper Chojnacki" data-pl="Kacper Chojnacki">Kacper Chojnacki</h1>
+        <div class="mb-6 flex flex-wrap gap-x-2.5 gap-y-1 items-center text-muted text-sm font-mono">
+          <a href="https://kacperchojnacki.com" class="hover:underline text-[var(--color-accent)] font-medium">kacperchojnacki.com</a>
+          <span class="text-stone-300 dark:text-stone-850">·</span>
+          <span data-en="Software Engineer @ Dynatrace" data-pl="Software Engineer @ Dynatrace">Software Engineer @ Dynatrace</span>
+        </div>
         <p class="text-muted text-base" data-en="Software Engineer in the Work & Study program at <strong>Dynatrace</strong>, pursuing an MSc in Computer Science at <strong>JKU Linz</strong>. I focus on building reliable systems, backend architecture, and connecting technical execution with product thinking." data-pl="Software Engineer w programie Work & Study w <strong>Dynatrace</strong>, studiujący informatykę (MSc) na <strong>JKU Linz</strong>. Skupiam się na budowaniu niezawodnych systemów, architekturze backendowej oraz łączeniu aspektów technicznych z myśleniem produktowym.">
           Software Engineer in the Work & Study program at <strong>Dynatrace</strong>, pursuing an MSc in Computer Science at <strong>JKU Linz</strong>. I focus on building reliable systems, backend architecture, and connecting technical execution with product thinking.
         </p>
@@ -25,12 +30,15 @@ import TopBar from '../components/TopBar.astro';
         <h2 data-en="Professional Experience" data-pl="Doświadczenie zawodowe">Professional Experience</h2>
         <ul>
           <li>
-            <strong><a href="https://www.dynatrace.com" target="_blank" rel="noopener noreferrer">Dynatrace</a></strong>
-            <span class="text-muted" data-en="(July 2025 - Present):" data-pl="(lipiec 2025 - obecnie):">(July 2025 - Present):</span>
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-x-1.5 flex-wrap">
+              <strong><a href="https://www.dynatrace.com" target="_blank" rel="noopener noreferrer">Dynatrace</a></strong>
+              <span class="text-muted text-[0.9em]" data-en="(July 2025 - Present):" data-pl="(lipiec 2025 - obecnie):">(July 2025 - Present):</span>
+            </div>
             
             <div class="mt-2 pl-4 border-l-2 border-stone-200 dark:border-stone-800">
-              <div class="font-medium text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]" data-en="Software Engineer I (Linz, Austria, March 2026 - Present)" data-pl="Software Engineer I (Linz, Austria, marzec 2026 - obecnie)">
-                Software Engineer I (Linz, Austria, March 2026 - Present)
+              <div class="flex flex-col sm:flex-row sm:items-baseline gap-x-1.5 flex-wrap font-medium">
+                <span class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]" data-en="Software Engineer I" data-pl="Software Engineer I">Software Engineer I</span>
+                <span class="text-muted text-sm font-normal" data-en="(Linz, Austria, March 2026 - Present)" data-pl="(Linz, Austria, marzec 2026 - obecnie)">(Linz, Austria, March 2026 - Present)</span>
               </div>
               <span class="block mt-1 text-stone-600 dark:text-stone-400 text-sm" data-en="Designing and developing scalable backend components in the Java and Google Cloud Platform (GCP) ecosystem. Collaborating in an international team, conducting performance testing to proactively mitigate system bottlenecks, and maintaining high engineering standards." data-pl="Projektowanie i rozwój skalowalnych komponentów backendowych w ekosystemie Java i Google Cloud Platform (GCP). Współpraca w międzynarodowym zespole, przeprowadzanie testów wydajnościowych w celu proaktywnego eliminowania wąskich gardeł systemowych oraz dbanie o wysokie standardy inżynieryjne.">
                 Designing and developing scalable backend components in the Java and Google Cloud Platform (GCP) ecosystem. Collaborating in an international team, conducting performance testing to proactively mitigate system bottlenecks, and maintaining high engineering standards.
@@ -38,8 +46,9 @@ import TopBar from '../components/TopBar.astro';
             </div>
 
             <div class="mt-3 pl-4 border-l-2 border-stone-200 dark:border-stone-800">
-              <div class="font-medium text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]" data-en="Intern Software Engineer (Gdańsk, Poland, July 2025 - February 2026)" data-pl="Intern Software Engineer (Gdańsk, Polska, lipiec 2025 - luty 2026)">
-                Intern Software Engineer (Gdańsk, Poland, July 2025 - February 2026)
+              <div class="flex flex-col sm:flex-row sm:items-baseline gap-x-1.5 flex-wrap font-medium">
+                <span class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]" data-en="Intern Software Engineer" data-pl="Intern Software Engineer">Intern Software Engineer</span>
+                <span class="text-muted text-sm font-normal" data-en="(Gdańsk, Poland, July 2025 - February 2026)" data-pl="(Gdańsk, Polska, lipiec 2025 - luty 2026)">(Gdańsk, Poland, July 2025 - February 2026)</span>
               </div>
               <span class="block mt-1 text-stone-600 dark:text-stone-400 text-sm" data-en="Contributed to Java-based log processing services within the Log Monitoring domain, handling large-scale data ingestion. Enhanced telemetry routing components (via OTLP, AWS Firehose, and JSON) and built testing frameworks for workload simulation." data-pl="Wkład w rozwój usług przetwarzania logów w języku Java w domenie Log Monitoring, obsługujących masową konsumpcję danych. Rozbudowa komponentów rutowania telemetrycznego (OTLP, AWS Firehose, JSON) oraz budowa frameworków testowych do symulacji obciążenia.">
                 Contributed to Java-based log processing services within the Log Monitoring domain, handling large-scale data ingestion. Enhanced telemetry routing components (via OTLP, AWS Firehose, and JSON) and built testing frameworks for workload simulation.
@@ -48,14 +57,18 @@ import TopBar from '../components/TopBar.astro';
           </li>
 
           <li class="mt-6">
-            <strong><a href="https://llj.com.pl/" target="_blank" rel="noopener noreferrer">LLJ Software & Electronics</a></strong>
-            <span class="text-muted" data-en="(Junior Software Developer, Hybrid, July 2024 - June 2025):" data-pl="(Junior Software Developer, hybrydowo, lipiec 2024 - czerwiec 2025):">(Junior Software Developer, Hybrid, July 2024 - June 2025):</span>
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-x-1.5 flex-wrap">
+              <strong><a href="https://llj.com.pl/" target="_blank" rel="noopener noreferrer">LLJ Software & Electronics</a></strong>
+              <span class="text-muted text-[0.9em]" data-en="(Junior Software Developer, Hybrid, July 2024 - June 2025):" data-pl="(Junior Software Developer, hybrydowo, lipiec 2024 - czerwiec 2025):">(Junior Software Developer, Hybrid, July 2024 - June 2025):</span>
+            </div>
             <span class="block mt-1 text-stone-600 dark:text-stone-400" data-en="Developed backend components using Java and Spring Boot, integrating with PostgreSQL databases for maximum performance. Managed CI/CD pipelines via Docker and Git to support development flows, and successfully delivered a custom system streamlining operations for a client with 400+ employees." data-pl="Rozwój komponentów backendowych w języku Java i Spring Boot z integracją z bazami danych PostgreSQL. Zarządzanie procesami CI/CD za pomocą Dockera i systemu Git w celu wsparcia przepływu prac programistycznych, oraz pomyślne dostarczenie dedykowanego systemu usprawniającego operacje dla klienta zatrudniającego ponad 400 osób.">Developed backend components using Java and Spring Boot, integrating with PostgreSQL databases for maximum performance. Managed CI/CD pipelines via Docker and Git to support development flows, and successfully delivered a custom system streamlining operations for a client with 400+ employees.</span>
           </li>
 
           <li class="mt-6">
-            <strong><a href="https://nestbank.pl/" target="_blank" rel="noopener noreferrer">Nest Bank S.A.</a></strong>
-            <span class="text-muted" data-en="(Junior Software Developer, Hybrid, August 2023 - October 2023):" data-pl="(Junior Software Developer, hybrydowo, sierpień 2023 - październik 2023):">(Junior Software Developer, Hybrid, August 2023 - October 2023):</span>
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-x-1.5 flex-wrap">
+              <strong><a href="https://nestbank.pl/" target="_blank" rel="noopener noreferrer">Nest Bank S.A.</a></strong>
+              <span class="text-muted text-[0.9em]" data-en="(Junior Software Developer, Hybrid, August 2023 - October 2023):" data-pl="(Junior Software Developer, hybrydowo, sierpień 2023 - październik 2023):">(Junior Software Developer, Hybrid, August 2023 - October 2023):</span>
+            </div>
             <span class="block mt-1 text-stone-600 dark:text-stone-400" data-en="Collaborated on an enterprise RESTful application built on Spring Boot, enhancing core API features. Designed and deployed a custom internal application to automate employee off-boarding processes for an organization with 800+ employees, streamlining the document flow." data-pl="Współpraca przy rozbudowie korporacyjnej aplikacji RESTful opartej na Spring Boot, rozwijająca kluczowe funkcjonalności API. Zaprojektowanie i wdrożenie dedykowanej aplikacji wewnętrznej do automatyzacji procesów off-boardingowych pracowników w organizacji zatrudniającej ponad 800 pracowników, co usprawniło przepływ dokumentów.">Collaborated on an enterprise RESTful application built on Spring Boot, enhancing core API features. Designed and deployed a custom internal application to automate employee off-boarding processes for an organization with 800+ employees, streamlining the document flow.</span>
           </li>
         </ul>
@@ -66,8 +79,10 @@ import TopBar from '../components/TopBar.astro';
         <h2 data-en="Academic Projects" data-pl="Projekty akademickie">Academic Projects</h2>
         <ul>
           <li>
-            <strong><a href="https://github.com/kacper-chojnacki/OrthoSense" target="_blank" rel="noopener noreferrer">OrthoSense</a></strong>
-            <span class="text-muted" data-en="(Engineering Thesis, October 2025 - February 2026):" data-pl="(Praca dyplomowa, październik 2025 - luty 2026):">(Engineering Thesis, October 2025 - February 2026):</span>
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-x-1.5 flex-wrap">
+              <strong><a href="https://github.com/kacper-chojnacki/OrthoSense" target="_blank" rel="noopener noreferrer">OrthoSense</a></strong>
+              <span class="text-muted text-[0.9em]" data-en="(Engineering Thesis, October 2025 - February 2026):" data-pl="(Praca dyplomowa, październik 2025 - luty 2026):">(Engineering Thesis, October 2025 - February 2026):</span>
+            </div>
             <span class="block mt-1 text-stone-600 dark:text-stone-400" data-en="A rehabilitation support system powered by Computer Vision to assess exercise technique in real-time. Built on Edge AI architecture to process pose detection (Google ML Kit) locally on the device, ensuring GDPR compliance and low latency. Developed using Flutter for the UI and logic." data-pl="System wspomagania rehabilitacji wykorzystujący wizję komputerową do oceny techniki ćwiczeń w czasie rzeczywistym. Oparty na architekturze Edge AI w celu lokalnego przetwarzania detekcji postawy (Google ML Kit), co zapewniło pełną zgodność z RODO oraz brak opóźnień. Aplikacja stworzona przy użyciu technologii Flutter.">A rehabilitation support system powered by Computer Vision to assess exercise technique in real-time. Built on Edge AI architecture to process pose detection (Google ML Kit) locally on the device, ensuring GDPR compliance and low latency. Developed using Flutter for the UI and logic.</span>
           </li>
         </ul>
@@ -78,13 +93,17 @@ import TopBar from '../components/TopBar.astro';
         <h2 data-en="Education" data-pl="Edukacja">Education</h2>
         <ul>
           <li>
-            <strong data-en="MSc in Computer Science" data-pl="Studia magisterskie (MSc), Informatyka">MSc in Computer Science</strong>
-            <span class="text-muted" data-en="(March 2026 - Present):" data-pl="(marzec 2026 - obecnie):">(March 2026 - Present):</span>
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-x-1.5 flex-wrap">
+              <strong data-en="MSc in Computer Science" data-pl="Studia magisterskie (MSc), Informatyka">MSc in Computer Science</strong>
+              <span class="text-muted text-[0.9em]" data-en="(March 2026 - Present):" data-pl="(marzec 2026 - obecnie):">(March 2026 - Present):</span>
+            </div>
             <span class="block mt-1 text-stone-600 dark:text-stone-400" data-en="Johannes Kepler University Linz, Austria.<br />Specialization: Software Engineering." data-pl="Johannes Kepler Universität Linz, Austria.<br />Specjalizacja: Inżynieria Oprogramowania.">Johannes Kepler University Linz, Austria.<br />Specialization: Software Engineering.</span>
           </li>
           <li>
-            <strong data-en="BSc in Computer Science (Inżynier)" data-pl="Studia inżynierskie (BSc), Informatyka">BSc in Computer Science (Inżynier)</strong>
-            <span class="text-muted" data-en="(October 2022 - February 2026):" data-pl="(październik 2022 - luty 2026):">(October 2022 - February 2026):</span>
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-x-1.5 flex-wrap">
+              <strong data-en="BSc in Computer Science (Inżynier)" data-pl="Studia inżynierskie (BSc), Informatyka">BSc in Computer Science (Inżynier)</strong>
+              <span class="text-muted text-[0.9em]" data-en="(October 2022 - February 2026):" data-pl="(październik 2022 - luty 2026):">(October 2022 - February 2026):</span>
+            </div>
             <span class="block mt-1 text-stone-600 dark:text-stone-400" data-en="Polish-Japanese Academy of Information Technology, Gdańsk Branch.<br />Specialization: Cybersecurity.<br />Thesis: <a href='https://github.com/kacper-chojnacki/OrthoSense' target='_blank' rel='noopener noreferrer' class='hover:underline font-medium text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]'>OrthoSense</a>." data-pl="Polsko-Japońska Akademia Technik Komputerowych, Filia w Gdańsku.<br />Specjalizacja: Cyberbezpieczeństwo.<br />Praca dyplomowa: <a href='https://github.com/kacper-chojnacki/OrthoSense' target='_blank' rel='noopener noreferrer' class='hover:underline font-medium text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]'>OrthoSense</a>.">Polish-Japanese Academy of Information Technology, Gdańsk Branch.<br />Specialization: Cybersecurity.<br />Thesis: <a href="https://github.com/kacper-chojnacki/OrthoSense" target="_blank" rel="noopener noreferrer" class="hover:underline font-medium text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">OrthoSense</a>.</span>
           </li>
         </ul>
