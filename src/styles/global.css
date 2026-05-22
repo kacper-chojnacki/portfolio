@@ -224,26 +224,25 @@
     color: var(--color-muted-dark);
   }
 
-  /* Smooth theme transitions — cover all colour-bearing properties */
+  /* Smooth theme transitions — apply only to specific color-changing elements to ensure maximum 60fps rendering performance and zero mobile lag */
   .theme-transitioning,
-  .theme-transitioning *:not(svg):not(path):not(circle):not(.logo-brand):not(.logo-brand *) {
+  .theme-transitioning body,
+  .theme-transitioning a,
+  .theme-transitioning button,
+  .theme-transitioning .btn,
+  .theme-transitioning .control-btn,
+  .theme-transitioning .text-muted,
+  .theme-transitioning hr,
+  .theme-transitioning h1,
+  .theme-transitioning .logo-brand,
+  .theme-transitioning [class*="border"],
+  .theme-transitioning .prose ul li::before {
     transition:
       background-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
       border-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
       color 400ms cubic-bezier(0.4, 0, 0.2, 1),
       text-decoration-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 400ms cubic-bezier(0.4, 0, 0.2, 1) !important;
-  }
-
-  /* Prevent inheriting text elements from transitioning color independently to avoid WebKit/mobile double-transition lag */
-  .theme-transitioning span:not(.logo-brand *),
-  .theme-transitioning strong,
-  .theme-transitioning em,
-  .theme-transitioning p,
-  .theme-transitioning li,
-  .theme-transitioning h2,
-  .theme-transitioning h3 {
-    transition-property: background-color, border-color, box-shadow !important;
   }
 
   /* Define explicit colors and transitions for logo brand to prevent transition jumps */
