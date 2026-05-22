@@ -230,10 +230,12 @@
   .theme-transitioning a,
   .theme-transitioning button,
   .theme-transitioning .btn,
+  .theme-transitioning .btn span,
   .theme-transitioning .control-btn,
   .theme-transitioning .text-muted,
   .theme-transitioning hr,
   .theme-transitioning h1,
+  .theme-transitioning h2,
   .theme-transitioning .logo-brand,
   .theme-transitioning [class*="border"],
   .theme-transitioning .prose ul li::before {
