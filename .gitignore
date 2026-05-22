@@ -32,3 +32,5 @@ test_mobile_responsiveness.js
 # PDFs and document binaries
 *.pdf
 
+# AI tools
+AGENTS.md
