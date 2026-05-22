@@ -40,13 +40,19 @@
 
 <style>
   .logo-brand {
-    font-size: 2.25rem;
+    font-size: 1.625rem;
     font-weight: 700;
     line-height: 1;
     display: inline-flex;
     align-items: baseline;
     color: inherit;
     transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (min-width: 640px) {
+    .logo-brand {
+      font-size: 2.25rem;
+    }
   }
 
   .logo-wrapper {
