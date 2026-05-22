@@ -61,5 +61,22 @@ const {
     <footer class="mt-16 pb-8 text-center">
       <p class="text-muted" style="font-size: 0.75rem; letter-spacing: 0.05em;" data-en="Last update: May 2026" data-pl="Ostatnia aktualizacja - Maj 2026">Last update: May 2026</p>
     </footer>
+
+    <script>
+      import Lenis from 'lenis';
+
+      // Initialize Lenis with ultra-premium, responsive buttery physics
+      const lenis = new Lenis({
+        lerp: 0.1,                  // Linear interpolation (0.1 is the sweet spot: ultra-smooth deceleration, yet instant response)
+        syncTouch: false,           // Let touch devices keep their natural OS momentum scrolling
+      });
+
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    </script>
   </body>
 </html>
