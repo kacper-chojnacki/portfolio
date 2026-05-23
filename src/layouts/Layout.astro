@@ -21,6 +21,38 @@ const {
     <meta name="description" content={description} />
     <meta name="author" content="Kacper Chojnacki" />
 
+    <!-- JSON-LD Structured Data (Person Schema) for Search Engines -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kacper Chojnacki",
+        "url": "https://kacperchojnacki.com",
+        "image": "https://kacperchojnacki.com/photo.jpg",
+        "jobTitle": "Software Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Dynatrace"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Johannes Kepler University Linz"
+        },
+        "knowsAbout": [
+          "Software Engineering",
+          "Backend Architecture",
+          "Java",
+          "Google Cloud Platform (GCP)",
+          "Cybersecurity",
+          "Computer Science"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/kacperchojnacki/",
+          "https://github.com/kacper-chojnacki"
+        ]
+      }
+    </script>
+
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
